@@ -1,8 +1,11 @@
+body{
+    margin: 0;
+}
 .navbar {
+    margin: 0;
     overflow: hidden;
-    background-color: #333;
+    background-color: black;
     font-family: cursive;
-    margin: -10px;
     padding-right: 50px;
     padding-top: 12px;
     padding-bottom: 12px;
@@ -35,9 +38,8 @@
 }
 
 .navbar a:hover, .menu:hover .menubtn, .menubtn:focus {
-    background-color: red;
+    background-color: #ffcc33;
 }
-
 
 .menu-content {
     display: none;
@@ -58,7 +60,7 @@
 }
 
 .menu-content a:hover {
-    background-color: #ddd;
+    background-color: #ffcc33;
 }
 
 .show {
@@ -70,7 +72,7 @@
 footer{
     display: flex;
     position: fixed;
-    background-color: #333;
+    background-color: black;
     right: 0;
     left: 0;
     bottom: 0;
@@ -80,20 +82,17 @@ footer{
     display: flex;
     font-family: inherit;
     padding: 10px;
-    
 }
 .gps{
     background-color: #ffcc33;
-    color: #333;
+    color: black;
     padding: 20px;
     margin:20px;
-    font-family: inherit;
     font-size: 20px;
-   
 }
 
 footer section div{
-    padding: 20px;
+    padding: 15px;
 }
 footer section{
     display: flex;
@@ -103,7 +102,62 @@ footer section{
 footer div:hover{
     border: 1px solid white;
 }
+footer div{
+    border: 1px solid black;
+}
 footer img{
     width: 40px;
     height: 40px
 }
+.burgers{
+    margin-left: 100px;
+    margin-right: 100px;
+    display: flex;
+    justify-content: space-around;
+    height: 500px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+.burgers .burger:hover{
+    border: 2px solid black;
+}
+.burgers .burger{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 23%;
+    padding: 5px;
+    border: 2px solid white;
+}
+.burgers .burger img{
+    height: 50%;
+    width: 100%;
+}
+.burgers .burger .description{
+    position: relative;
+    height: 50%;
+    background-color: black;
+    font-family: monospace;
+    font-size: 25px;
+    color:white;
+    border-top: 1px solid #ffe57f;
+    padding: 20px;
+
+}
+.burgers .burger a{
+    position: absolute;
+    display: inline-block;
+    color:white;
+    bottom: 0;
+    margin-bottom: 10px;
+}
+.burger .effect{
+    font-family: 'cursive';
+    color:white;
+    display: none;
+    height: 100%;
+    background-color: #212121;
+    padding: 5px;
+}
+
+
