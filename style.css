@@ -56,6 +56,7 @@ video{
 }
 
 .burgers{
+    flex-wrap: wrap;
     margin-left: 100px;
     margin-right: 100px;
     display: flex;
@@ -71,7 +72,7 @@ video{
     display: flex;
     flex-direction: column;
     height: 100%;
-    width: 23%;
+    width: 18em;
     padding: 5px;
     border: 2px solid white;
 }
