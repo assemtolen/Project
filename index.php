@@ -1,8 +1,3 @@
-<div class="burgers">
-	<?php  while($row = mysqli_fetch_assoc($result)) {
-		echo "<div class='burger'><img src='".$row['Src']."'><div class='description'><div class='name'>".$row['Name']."</div><div class='price'>".$row['Price']." TG</div><a href='burgers.php?id=".$row['id']."'>More</a></div></div>";
-	}?>
-</div>
 <?php 
    $dbhost = 'localhost';
    $dbuser = 'root';
