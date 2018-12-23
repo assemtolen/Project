@@ -10,19 +10,11 @@
 <div class="navbar">
 	<img src="yy.jpg" class="badge">
 	<div style="color: white;margin-left: 20px">«YUFRAME BURGER»<br>PLACE THE RIGHT BURGERS</div>
-	<div class="all">
-		<a href="index.html" style="font-size: 17px;color: white; text-align: center;padding: 12px;text-decoration: none;">HOME</a>
-		<a href="about.html" style="font-size: 17px;color: white; text-align: center;padding: 12px;text-decoration: none;">ABOUT US</a>
-		<div class="menu">
-		    <button class="menubtn" onclick="f()">MENU
-		    <i class="fa fa-caret-down"></i>
-		    </button>
-		    <div class="menu-content" id="menu">
-		      <a href="burgers.html">BURGERS</a>
-		      <a href="#">HOT-DOGS</a>
-			</div>
-		</div>
-		<a href="#NEWS" style="font-size: 17px;color: white; text-align: center;padding: 12px;text-decoration: none;">DISCOUNT</a>
+	<div class="all" id="all">
+		<a href="index.html" class="without">HOME</a>
+		<a href="about.html" class="without">ABOUT US</a>
+		<a href="burgers.html" class="without">MENU</a>
+		<a href="javascript:void(0);" class="icon" onclick="myFunction()"><i class="fa fa-bars"></i></a>
 
 	</div>
 </div>
