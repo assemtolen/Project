@@ -94,6 +94,7 @@ body{
 }
 .burgers .burger .card .price{
 	font-size: 40px;
+    float: right;
 }
 
 .burgers .burger .description{
