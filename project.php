@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<script>
-	function validsettings()                                    
+  <script>
+  function validsettings()                                    
 { 
     var name = document.forms['menumaker']["name"];               
     var description = document.forms['menumaker']["description"];    
@@ -39,18 +39,27 @@
     } 
     return true; 
 }</script> 
-	<style>
-	@media screen and (max-width: 600px) {
-		input[type=submit] {
+  <style>
+  
+  .logout a{
+  right: 0;
+  background-color:green;
+  padding: 14px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;    
+  }
+  @media screen and (max-width: 600px) {
+    input[type=submit] {
     width: 100%;
     margin-top: 0;
   }
 }
-	a{
-		display: inline-block;
-		margin: 10px; 
-	}
-	a:link, a:visited {
+  a{
+    display: inline-block;
+    margin: 10px; 
+  }
+  a:link, a:visited {
   color: white;
   padding: 14px 25px;
   text-align: center;
@@ -65,8 +74,8 @@ input[type=submit] {
   text-decoration: none;
   margin: 4px 2px;
 }
-	input[type=text], textarea {
-  font-size: 16px;		
+  input[type=text], textarea {
+  font-size: 16px;    
   width: 100%;
   padding-top: 12px;
   padding-bottom: 12px;
@@ -93,63 +102,62 @@ th {
 </style>
 </head>
 <body>
-	<?php require_once 'operation.php'; 
-	?>
-	<?php 
-	if (isset($_SESSION['message'])) {
-			echo "<script type='text/javascript'>alert('".$_SESSION['message']."');</script>";
-			unset($_SESSION['message']);
-		}
-		 ?>
+  <div class="logout"><a href="logout.php">Logout</a></div>
+  <?php require_once 'operation.php'; 
+  ?>
+  <?php 
+  if (isset($_SESSION['message'])) {
+      echo "<script type='text/javascript'>alert('".$_SESSION['message']."');</script>";
+      unset($_SESSION['message']);
+    }
+     ?>
 
-	<?php 
-		$dbhost = 'localhost:3306';
-   		$dbuser = 'root';
-   		$dbpass = '';
-   		$conn = mysqli_connect($dbhost, $dbuser, $dbpass,'burgers');
-   		$sql = "SELECT * FROM burgers";
-   		$result = mysqli_query($conn, $sql);
-   		?>
-   		<div class="row">
-   			<table class="table">
-   				<thead>
-					<tr>
-						<th>Name of Burger</th>
-						<th>Path for image</th>
-						<th>Description</th>
-						<th>Consistence</th>
-						<th>Price</th>
-						<th colspan="2">Settings</th>
-					</tr>	
-   				</thead>
-   				<?php 
-   					while ($row = $result->fetch_assoc()) {
-   						echo "<tr>";
-   						echo "<td>".$row['Name']."</td>";
-   						echo "<td>".$row['Src']."</td>";
-   						echo "<td>".$row['Description']."</td>";
-   						echo "<td>".$row['Consistence']."</td>";
-   						echo "<td>".$row['Price']."</td>";
-   						echo "<td>";
-   						echo "<a href='project.php?edit=".$row['id']."' style = 'background-color: blue;'>Edit</a>";
-   						echo "<a href='operation.php?delete=".$row['id']."' style = 'background-color: red;'>Delete</a>";
-   						echo "</td>";
-   						echo "</tr>";
-   					}
-   				 ?>
+  <?php 
+  if(!isset($_COOKIE["type"]))
+{
+ header("location:admin.php");
+}
+else{
+    $dbhost = 'localhost:3306';
+      $dbuser = 'root';
+      $dbpass = '';
+      $conn = mysqli_connect($dbhost, $dbuser, $dbpass,'burgers');
+      $sql = "SELECT * FROM burgers";
+      $result = mysqli_query($conn, $sql);
+      ?>
+      <div class="row">
+        <table class="table">
+          <thead>
+          <tr>
+            <th>Name of Burger</th>
+            <th>Path for image</th>
+            <th>Description</th>
+            <th>Consistence</th>
+            <th>Price</th>
+            <th colspan="2">Settings</th>
+          </tr> 
+          </thead>
+          <?php 
+            while ($row = $result->fetch_assoc()) {
+              echo "<tr>";
+              echo "<td>".$row['Name']."</td>";
+              echo "<td>".$row['Src']."</td>";
+              echo "<td>".$row['Description']."</td>";
+              echo "<td>".$row['Consistence']."</td>";
+              echo "<td>".$row['Price']."</td>";
+              echo "<td>";
+              echo "<a href='project.php?edit=".$row['id']."' style = 'background-color: blue;'>Edit</a>";
+              echo "<a href='operation.php?delete=".$row['id']."' style = 'background-color: red;'>Delete</a>";
+              echo "</td>";
+              echo "</tr>";
+            }
+           ?>
 
-   			</table>
-   		</div>
-   		<?php
-   		function pre_r($array){
-   			echo "<pre>";
-   			print_r($array);
-   			echo "</pre>";
-   		}
-	 ?>
+        </table>
+      </div>
 <form action="operation.php" method="POST" onsubmit="return validsettings()" name="menumaker">
        <div id="data">
-       		<input type="hidden" name="id" value="<?php echo $id; ?>">
+          <input type="hidden" name="id" value="<?php echo $id; ?>">
             <label>Name of Dish</label>
             <input type="text" name="name" value="<?php echo $name ?>" placeholder = "enter the name of the dish"><br>
             <label>Description</label>
@@ -163,17 +171,14 @@ th {
             <label>Src</label>
             <input type="text" name="src" value="<?php echo $src ?>" placeholder = "enter path"><br>
         </div>
-		
-	        <div id="buttons">
-	        	<?php 
-	        		if ($update == true) {
-	        			echo "<input type='submit' value='update' name='update' style = 'background-color:blue'>";
-	        		}
-	        		else{
-	        			echo "<input type='submit' value='submit' name='submit'>";
-	        		}
-	        	 ?>
-        </div>
+       <?php 
+              if ($update == true) {
+                echo "<input type='submit' value='update' name='update' style = 'background-color:blue'>";
+              }
+              else{
+                echo "<input type='submit' value='submit' name='submit'>";
+              }}
+             ?>
      </form>
 </body>
 </html>
