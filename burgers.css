@@ -119,7 +119,7 @@ footer section div{
 }
 footer section{
     display: flex;
-    width: 50%;
+    width: 30%;
     justify-content: center
 }
 footer div:hover{
