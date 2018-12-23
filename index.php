@@ -6,7 +6,7 @@
    $sql = "SELECT * FROM burgers";
    $result = mysqli_query($conn, $sql);
  ?>
- <!DOCTYPE html>
+<!DOCTYPE html>
 
 <html>
 <head>
@@ -21,8 +21,8 @@
 	<div class="all" id="all">
 		<a href="index.php" class="without">HOME</a>
 		<a href="about.html" class="without">ABOUT US</a>
-		<a href="burgers.php" class="without">MENU</a>
-		<a href="javascript:void(0);" class="icon" onclick="menuFunction()"><i class="fa fa-bars"></i></a>
+		<a href="menu.php" class="without">MENU</a>
+		<a href="javascript:void(0);" class="icon" onclick="myFunction()"><i class="fa fa-bars"></i></a>
 
 	</div>
 </div>
@@ -31,38 +31,9 @@
 </video>
 
 <div class="burgers">
-	<div class="burger">
-		<img src="b1.jpg">
-		<div class="description">
-			<div class="name">Buzova Burger</div>
-			<div class="price">890 tg</div>
-			<a href="burgers.html">More</a>
-		</div>
-</div>
-	<div class="burger">
-		<img src="b2.jpg">
-		<div class="description">
-			<div class="name">Naruto Burger</div>
-			<div class="price">1090 tg</div>
-			<a href="burgers.html">More</a>
-		</div>
-</div>
-	<div class="burger">
-		<img src="b3.jpg">
-		<div class="description">
-			<div class="name">AlPacino Burger</div>
-			<div class="price">1190 yg</div> 
-			<a href="burgers.html">More</a>
-		</div>
-</div> 
-	<div class="burger">
-		<img src="b4.jpg">
-		<div class="description">
-			<div class="name">Trump Burger</div>
-			<div class="price">1290 tg</div>
-			<a href="burgers.html">More</a>
-		</div>
-  </div>
+	<?php  while($row = mysqli_fetch_assoc($result)) {
+		echo "<div class='burger'><img src='".$row['Src']."'><div class='description'><div class='name'>".$row['Name']."</div><div class='price'>".$row['Price']." TG</div><a href='burgers.php?id=".$row['id']."'>More</a></div></div>";
+	}?>
 </div>
 
 <div class="slideshow-container">
@@ -89,9 +60,9 @@
 </div>
 
 
-<div class="div">
+<div style="display: flex;flex-direction: column;align-items: center; padding-bottom: 100px; padding-top: 100px;background-color: black " class="div">
 	<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2905.9603596644133!2d76.93183641572413!3d43.25225258628198!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38836eb8e7797151%3A0x4d2eb672c6bf8a35!2sYuframe+Burger!5e0!3m2!1sen!2skz!4v1545049106591" width="1000" height="600" frameborder="0" style="border:0" allowfullscreen></iframe>
-	<div>
+	<div style="display: flex;">
 		<button class="gps">BOGENBAY BATYR 150</button>
 		<button class="gps">SC "GLOBUS"</button>
 		<button class="gps">SEC "ADK"</button>
